@@ -90,7 +90,7 @@ public class voteController {
             return "voteView";
         } else {
             try {
-                response.sendRedirect("/vote");
+                response.sendRedirect("/");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,7 +108,7 @@ public class voteController {
         dao.update(voteResult, uid);
 
         try {
-            response.sendRedirect("/vote");
+            response.sendRedirect("/");
         } catch (IOException e) {
             e.printStackTrace();
         }
