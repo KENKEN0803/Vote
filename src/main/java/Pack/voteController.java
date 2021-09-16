@@ -1,6 +1,8 @@
 package Pack;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,28 @@ public class voteController {
     private voteDAO dao;
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        dao = new voteDAO();
+        ResultSet resultSet = null;
+        try {
+            resultSet = dao.select();
+            if (resultSet != null) {
+                int i = 0;
+                while (resultSet.next()) {
+                    String s = resultSet.getString("count");
+                    model.addAttribute("c" + i, s);
+                    System.out.println(String.valueOf(i) + "번 득표 수 : " + s);
+                    i++;
+                }
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "index";
     }
 
@@ -67,7 +90,7 @@ public class voteController {
             return "voteView";
         } else {
             try {
-                response.sendRedirect("/vote");
+                response.sendRedirect("/");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -85,7 +108,7 @@ public class voteController {
         dao.update(voteResult, uid);
 
         try {
-            response.sendRedirect("/vote");
+            response.sendRedirect("/");
         } catch (IOException e) {
             e.printStackTrace();
         }

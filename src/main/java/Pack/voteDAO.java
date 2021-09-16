@@ -64,7 +64,6 @@ public class voteDAO {
     }
 
     public boolean select(String uid) {
-
         try {
             sql = "select * from user where UID = ?";
             preparedStatement = conn.prepareStatement(sql);
@@ -105,4 +104,21 @@ public class voteDAO {
             resourceClose();
         }
     }
+
+    public ResultSet select() {
+        try {
+            sql = "select CID, count(*) as count from user group by CID ORDER BY CID;";
+            preparedStatement = conn.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            System.out.println("쿼리실행");
+            return resultSet;
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        } finally {
+//            resourceClose();
+        }
+        return null;
+    }
+
 }
