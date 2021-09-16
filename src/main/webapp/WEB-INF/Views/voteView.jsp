@@ -1,22 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="EUC-KR"%>
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="EUC-KR">
+    <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="css/index1.css">
 </head>
 <body>
 <div class="wrap">
-    <label>ÅõÇ¥ ÈÄº¸</label>
+    <label>íˆ¬í‘œ í›„ë³´</label>
     <form method="post" action="voteViewProcess" class="textForm">
-        <div><input type="radio" value="c1" name="radio" checked> <label for="c1">±è³ªÀº</label></div>
-        <div><input type="radio" value="c2" name="radio"> <label for="c2">ÀÌÀçÇö</label></div>
-        <div><input type="radio" value="c3" name="radio"> <label for="c3">±è¼öÀÎ</label></div>
-        <div><input type="radio" value="c4" name="radio"> <label for="c4">ÃÖ¿¹ÁØ</label></div>
+        <div><input type="radio" value="c1" name="radio" checked> <label for="c1">ê¹€ë‚˜ì€</label></div>
+        <div><input type="radio" value="c2" name="radio"> <label for="c2">ì´ìž¬í˜„</label></div>
+        <div><input type="radio" value="c3" name="radio"> <label for="c3">ê¹€ìˆ˜ì¸</label></div>
+        <div><input type="radio" value="c4" name="radio"> <label for="c4">ìµœì˜ˆì¤€</label></div>
 
-        <div><input type="submit" value="ÅõÇ¥ÇÏ±â" class="btn"></div>
+        <div><input type="submit" value="íˆ¬í‘œí•˜ê¸°" class="btn"></div>
     </form>
 </div>
 </body>
